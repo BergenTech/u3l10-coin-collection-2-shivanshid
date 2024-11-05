@@ -97,7 +97,7 @@ function moveObstacle() {
   else {
     obstacleY = 0
     obstacleX = random(20, width-20)
-    Obstaclespeed += 1
+    Obstaclespeed += 0.5
   }
   // TODO: Move obstacle from left to right
   // HINT: Increase obstacleX by obstacleSpeed
@@ -110,7 +110,7 @@ function moveObstacle() {
 function checkCoinCollection() {
   if(dist(playerX, playerY, coinX, coinY) < 15 && !coinCollected) {
     score++
-    Obstaclespeed += 1
+    Obstaclespeed += 0.5
     coinCollected = true
     newCoin()
   }
@@ -149,6 +149,13 @@ function displayStats() {
 }
 
 function displayGameOver() {
+  background(220)
+  textAlign(CENTER, CENTER)
+  textSize(24)
+  text("Game Over", width/2, 70)
+  text("Final score: " + score, width/2, height/2)
+  text("Press R to Restart", width/2, 100)
+
   // TODO: Show game over screen
   // HINT: Use textAlign(CENTER, CENTER)
   // Show:
