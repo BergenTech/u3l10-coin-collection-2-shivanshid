@@ -38,8 +38,8 @@ function draw() {
     drawObstacle();
     
     // Handle movement
-    movePlayer();
     moveObstacle();
+    movePlayer();
     
     // Check for collisions
     checkCoinCollection();
@@ -125,6 +125,7 @@ function checkCoinCollection() {
 function checkCollisions() {
   if(dist(playerX, playerY, obstacleX, obstacleY) < 20) {
     hits += 1
+    obstacleX = random(20, width-20)
     Obstaclespeed += 1
     if (hits >= 3) {
       gameOver = true
@@ -171,6 +172,11 @@ function newCoin() {
 }
 
 function resetGame() {
+  score = 0
+  hits = 0
+  Obstaclespeed = 5
+  gameOver = false
+  initializeGame()
   // TODO: Reset all game variables
   // HINT: Reset score, hits, speed
   // Set gameOver to false
@@ -178,6 +184,9 @@ function resetGame() {
 }
 
 function keyPressed() {
+  if(key === 'r' || key==='R') {
+    resetGame()
+  }
   // TODO: Check for 'R' key to restart game
   // HINT: Use key === 'r' || key === 'R'
   // Only works when game is over
