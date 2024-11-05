@@ -1,4 +1,4 @@
-// Game variables 
+//  Game variables 
 let playerX, playerY;
 let coinX, coinY;
 let obstacleX, obstacleY;
