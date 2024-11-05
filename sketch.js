@@ -55,6 +55,7 @@ function drawPlayer() {
 }
 
 function drawCoin() {
+  coinCollected = false
   fill(255, 255, 0);  // Yellow coin
   circle(coinX, coinY, 10);
 }
@@ -95,7 +96,7 @@ function moveObstacle() {
   else {
     obstacleY = 0
     obstacleX = random(20, width-20)
-    obstacleSpeed += 1
+    Obstaclespeed += 1
   }
   // TODO: Move obstacle from left to right
   // HINT: Increase obstacleX by obstacleSpeed
@@ -106,7 +107,12 @@ function moveObstacle() {
 }
 
 function checkCoinCollection() {
-  if(dist(playerX, playerY, coinX, coinY) < 15 && )
+  if(dist(playerX, playerY, coinX, coinY) < 15 && !coinCollected) {
+    score++
+    Obstaclespeed += 1
+    coinCollected = true
+    newCoin()
+  }
   // TODO: Check if player touches coin
   // HINT: Use dist(playerX, playerY, coinX, coinY)
   // If distance < 15:
